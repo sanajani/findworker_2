@@ -1,0 +1,2 @@
+background_color bg-blue-500
+button_background_color bg-blue-700

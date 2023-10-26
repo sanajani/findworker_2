@@ -1,0 +1,3 @@
+const paginations = (limit) => {
+
+}

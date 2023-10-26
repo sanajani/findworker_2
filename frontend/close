@@ -1,0 +1,59 @@
+[33mcommit f438c137c27b9b38379441db2334a72d4f0507ad[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: Sanaullah <webdevfarsi@gmail.com>
+Date:   Tue Oct 24 09:52:06 2023 +0430
+
+    implemented small changes
+
+[33mcommit 70689e74be1395b56563ccadfd39cdeb368126e1[m
+Author: Sanaullah <webdevfarsi@gmail.com>
+Date:   Tue Oct 24 09:25:20 2023 +0430
+
+    adding pagination on the backend
+
+[33mcommit 1cbbfffe01714dac432a905635f12da9896d453c[m
+Author: Sanaullah <webdevfarsi@gmail.com>
+Date:   Mon Oct 23 06:57:44 2023 +0430
+
+    changes
+
+[33mcommit e04f383fabd279e7d7b011c3a1f49ac80d2abc7c[m
+Author: Sanaullah <webdevfarsi@gmail.com>
+Date:   Sun Oct 22 21:23:57 2023 +0430
+
+    getting user data on search
+
+[33mcommit 25fa0e4659ee96da9baa37073a39f63aba165b88[m
+Author: Sanaullah <webdevfarsi@gmail.com>
+Date:   Sun Oct 22 10:09:57 2023 +0430
+
+    working on user profile
+
+[33mcommit 9285225349eb9fb1863caf14aab5f747a23f8e8e[m
+Author: Sanaullah <webdevfarsi@gmail.com>
+Date:   Sat Oct 21 23:17:04 2023 +0430
+
+    connecting the backend with frontend
+
+[33mcommit 8eb75005a8e9aad484caf6da50d37dbb02dfb9d2[m
+Author: Sanaullah <webdevfarsi@gmail.com>
+Date:   Fri Oct 20 23:50:21 2023 +0430
+
+    setting toast messages on every page
+
+[33mcommit 0a015830c3d50de82257b4382ddf633aa5e0d71a[m
+Author: Sanaullah <webdevfarsi@gmail.com>
+Date:   Fri Oct 20 23:25:57 2023 +0430
+
+    after adding error file on every route
+
+[33mcommit cdaeae4854ae0c8955314041a894282757937341[m
+Author: Sanaullah <webdevfarsi@gmail.com>
+Date:   Fri Oct 20 22:30:24 2023 +0430
+
+    readme file changed
+
+[33mcommit 9a57dd9bbae783e9d8bea620cc9b1e3ba364b012[m
+Author: Sanaullah <webdevfarsi@gmail.com>
+Date:   Fri Oct 20 22:24:51 2023 +0430
+
+    first commit
