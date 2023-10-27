@@ -6,6 +6,7 @@ import Button from './Button'
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 
+
 const SearchTable = () => {
     const pathname = usePathname();
     const searchParams = useSearchParams()
@@ -23,12 +24,13 @@ const SearchTable = () => {
     },[searchParams])
 
     const searchUserByJob = () => {
-        // router.push(`/search?job=${query}`)
-        // router.push(`/search?${createQueryString('job',query)}`)
+        const provinceUrlWord = searchParams.get('province')
+        if(provinceUrlWord){
+            router.push(`/search?${createQueryString("province",provinceUrlWord,'job',query)}`)
+        }
         router.push(`/search?${createQueryString("province",provinceNameState,'job',query)}`)
     }
     const searchUserByProvince = () => {
-        console.log('function state',provinceNameState);
         if(provinceNameState){
             router.push(`/search?${createQueryString("province",provinceNameState,'job',query)}`)
         }
