@@ -119,7 +119,7 @@ export const logout = async (req,res) => {
 //         httpOnly: true,
 //        
 //     })
-    res.cookie('ourauthtoken','',{
+    const abc = res.cookie('ourauthtoken','',{
         httpOnly: true,
         maxAge: new Date(0),
         expiresIn:  new Date(0)
