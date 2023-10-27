@@ -112,19 +112,18 @@ export const getUser = async (req,res) => {
 export const logout = async (req,res) => {
     // const token = req.cookies.ourauthtoken || ''
     // console.log('this is backend token',req.cookie("ourauthtoken"));
-    console.log('this is backend token',req.cookies.ourauthtoken);
+    console.log('this is backend logout function token',req.cookies.ourauthtoken);
 
     req.cookies.ourauthtoken = ''
 //    const abc = req.cookie('ourauthtoken',"",{
 //         httpOnly: true,
 //        
 //     })
-    const abc = res.cookie('ourauthtoken','',{
+    res.cookie('ourauthtoken','',{
         httpOnly: true,
         maxAge: new Date(0),
         expiresIn:  new Date(0)
     })
-    console.log('this is abc',abc);
 
     return res.status(200).json({message:"successfully logout"})
 }
@@ -132,10 +131,10 @@ export const logout = async (req,res) => {
 // get all user for showing on the table
 export const getAllUsers = async (req,res,next) => {
     let page = parseInt(req.query.page) || 1
-    let limit = parseInt(req.query.limit) || 2
+    let limit = parseInt(req.query.limit) || 12
     try {
         const user = await UserModel.find().limit(limit*1).skip((page - 1) * limit).select('-password').exec();
-        // console.log('this is user value',user);
+        console.log('this is user value',user);
         const count = await UserModel.countDocuments()
         const currentPage = page
         const totalPages = Math.floor((count + limit - 1) / limit)
@@ -165,7 +164,7 @@ export const getSingleUsername = async (req,res,next) => {
 // Search user based on specific rule 
 export const searchUser = async (req,res) => {
     const page = parseInt(req.query.page) || 1
-    const limit = parseInt(req.query.limit) || 2
+    const limit = parseInt(req.query.limit) || 12
    try {
     let job = req.query.job
     let province = req.query.province
