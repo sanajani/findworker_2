@@ -10,6 +10,7 @@ import { initialValues,signupSchema } from '@/utils/signupSchema'
 import axios from 'axios'
 import { useState } from 'react'
 import { ToastContainer, toast } from 'react-toastify'
+import api from '@/utils/api'
 
 
 const ClientSignupForm = () => {
@@ -36,7 +37,7 @@ const ClientSignupForm = () => {
             formData.set('firstPhoneNumber',firstPhoneNumber)
             formData.set('file',file)
 
-            const postResponse = await axios.post('http://localhost:9808/api/signup', formData)
+            const postResponse = await api.post('/api/signup', formData)
             router.push('/login')
             toast.success("Signup Successfully",{
                 position: "bottom-right",

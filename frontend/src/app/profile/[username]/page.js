@@ -7,11 +7,10 @@ import { fetcher } from '@/helper/fetcher'
 import { useParams } from 'next/navigation'
 
 
-// http://localhost:9808/api/users/all/username
 
 const Profile = () => {
     const {username} = useParams()
-    const {data, isLoading, error} = useSWR(`http://localhost:9808/api/users/all/${username}`,fetcher)
+    const {data, isLoading, error} = useSWR(`/api/users/all/${username}`,fetcher)
 
     if(isLoading) return <h1>Loading...</h1>
 

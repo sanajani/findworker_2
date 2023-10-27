@@ -43,6 +43,7 @@ const HomePageTable = ({url}) => {
         pageSize: 2 // pageSize = limit  
     })
     const { data, error, isLoading } = useSWR(url,fetcher)
+    console.log(data);
     // {user: Array(6), totalPages: 1, currentPage: 1}
     
     const table = useReactTable({

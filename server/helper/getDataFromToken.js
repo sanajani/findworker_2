@@ -5,14 +5,13 @@ import jwt from "jsonwebtoken"
 export const getDataFromToken = (req,res,next) => {
     try {
         const token = req.cookies.ourauthtoken || ''
-        if(!token) return res.status(400).json({message:"JsonWebTokenError: jwt must be provided"})
+        console.log("token",token);
+        if(!token) return res.status(400).json({message:"JsonWebTokenError: jwt must be providedsdds"})
         
-        const decodedData = jwt.verify(token, process.env.TOKEN_SECRET,(err)=> {
-            if(err){
-                next(err)
-            }
-        })
+        const decodedData = jwt.verify(token, process.env.TOKEN_SECRET)
+        console.log(process.env.TOKEN_SECRET)
         req.data = decodedData
+        console.log(decodedData);
         next()
 
         // return 

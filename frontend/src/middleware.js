@@ -3,14 +3,19 @@ import { NextResponse } from 'next/server'
 // This function can be marked `async` if using `await` inside
 export function middleware(request) {
     const path = request.nextUrl.pathname
-
+    
+    // const messangerPath = path === '/messanger'
     const publicPath = path === '/login' || path === '/signup'
 
     const token = request.cookies.get('ourauthtoken')?.value || ''
+    console.log('middleware',token, publicPath);
 
     if(publicPath && token) {
         return NextResponse.redirect(new URL('/', request.nextUrl))
     }
+    // if(!token){
+      // return NextResponse.redirect(new URL('/', request.nextUrl))
+    // }
 }
  
 // See "Matching Paths" below to learn more

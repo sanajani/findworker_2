@@ -13,7 +13,7 @@ export default function Home() {
         <SearchTable />
       </div>
       <div className='md:col-span-2 md:w-full'>
-        <HomePageTable url={`http://localhost:9808/api/users/all?page=${pageSearchParamPagination}`} />
+        <HomePageTable url={`/api/users/all?page=${pageSearchParamPagination}`} />
       </div>
     </main>
   )

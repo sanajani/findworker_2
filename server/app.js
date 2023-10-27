@@ -14,7 +14,7 @@ connectDB()
 const app = express()
 app.use(morgan('dev'))
 app.use(express.json())
-app.use(cors())
+app.use(cors({credentials:true, origin:"http://localhost:3000"}))
 app.use(cookieParser())
 
 // app.use(express.static(''))
@@ -32,7 +32,7 @@ app.use('/api',signupRoute)
 app.use('/api/users',userRoute)
 
 // route not match with api routes
-// app.all('*',routeNotFoundError)
+app.all('*',routeNotFoundError)
 
 app.use(globelError)
 

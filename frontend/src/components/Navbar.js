@@ -8,6 +8,7 @@ import { isAuthTrue } from "../redux/isAuth";
 import { useDispatch, useSelector } from "react-redux";
 import { ToastContainer, toast } from 'react-toastify'
 import "react-toastify/dist/ReactToastify.css";
+import api from "@/utils/api";
 
 
 const Navbar = () => {
@@ -24,7 +25,10 @@ const Navbar = () => {
 
   const logout = async () => {
     try {
-      await axios.get('/api/users/logout')
+      const data = await api.get('/api//user/logout',{
+        withCredentials:true
+      })
+      console.log("Navbar data ",data);
       console.log('logout successful');
       dispatch(isAuthTrue())
       toast.success("user Logout Successfully",{

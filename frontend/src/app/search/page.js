@@ -26,7 +26,7 @@ const Search = () => {
         <HomePageTable 
           // {provinceSearchParam && jobsearchparam && }
          url={
-          `http://localhost:9808/api/users/search?job=${jobsearchparam}&province=${provinceSearchParam}&page=${pageSearchParams}`
+          `/api/users/search?job=${jobsearchparam}&province=${provinceSearchParam}&page=${pageSearchParams}`
          }
         
         />

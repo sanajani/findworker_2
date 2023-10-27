@@ -22,16 +22,7 @@ export const createUser = async (req,res,next) => {
         aboutuser
         } = req.body;
     const imageUrlPath = req.file?.path;
-    console.log(        name,
-        lastName,
-        username,
-        password,
-        job,
-        experiance,
-        firstPhoneNumber,
-        secondNumber,
-        province,
-        aboutuser)
+
 
     // if missed field then send an error experiance
     console.log('this is console up');
@@ -77,7 +68,8 @@ export const loginUser = async (req,res) => {
     console.log('hello world');
     const {username,password} = req.body;
     try {
-        const user = await UserModel.findOne({username: username});
+        const user = await UserModel.findOne({username: username}).select("+password")
+        // console.log(user.select("-password"));
         if(!user) return res.status(400).json({success:false, message:"User not exist"})
         const isPasswordCorrect = await bcryptjs.compare(password, user.password)
         if(!isPasswordCorrect) return res.status(400).json({success:false, message:"wrong password"})
@@ -117,12 +109,22 @@ export const getUser = async (req,res) => {
 
 // c:\Users\Sanaullah Mobini\Desktop\findworker\frontend\src\app\api\users\logout\route.js
 
-export const logout = async (req,res) => {    
-    res.cookie('ourauthtoken',"",{
+export const logout = async (req,res) => {
+    // const token = req.cookies.ourauthtoken || ''
+    // console.log('this is backend token',req.cookie("ourauthtoken"));
+    console.log('this is backend token',req.cookies.ourauthtoken);
+
+    req.cookies.ourauthtoken = ''
+//    const abc = req.cookie('ourauthtoken',"",{
+//         httpOnly: true,
+//        
+//     })
+    res.cookie('ourauthtoken','',{
         httpOnly: true,
         maxAge: new Date(0),
         expiresIn:  new Date(0)
     })
+    console.log('this is abc',abc);
 
     return res.status(200).json({message:"successfully logout"})
 }
@@ -133,7 +135,7 @@ export const getAllUsers = async (req,res,next) => {
     let limit = parseInt(req.query.limit) || 2
     try {
         const user = await UserModel.find().limit(limit*1).skip((page - 1) * limit).select('-password').exec();
-        console.log('this is user value',user);
+        // console.log('this is user value',user);
         const count = await UserModel.countDocuments()
         const currentPage = page
         const totalPages = Math.floor((count + limit - 1) / limit)

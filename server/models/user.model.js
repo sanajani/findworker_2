@@ -23,8 +23,8 @@ const userSchema = mongoose.Schema({
     password:{
         type: String,
         // // required: [true, "Password is Required"],
-        trim: true
-
+        trim: true,
+        select: false
     },
     job:{
         type: String,

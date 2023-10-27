@@ -1,3 +1,3 @@
-import axios from 'axios';
+import api from "@/utils/api"
 
-export const fetcher = (url) => axios.get(url).then(response => response.data)
+export const fetcher = (url) => api.get(url).then(response => response.data)

@@ -9,6 +9,7 @@ import { useDispatch } from 'react-redux'
 import { isAuthFalse } from '../redux/isAuth'
 import { toast, ToastContainer } from 'react-toastify';
 import ErrorMessges from './ErrorMessges'
+import api from '@/utils/api'
 
 const ClientLoginForm = () => {
     const router = useRouter()
@@ -16,8 +17,9 @@ const ClientLoginForm = () => {
 
     const loginFormSubmit = async (values) => {
         try { 
-            // const res = await axios.post('http://localhost:3000/api/users/login', values);
-            const res = await axios.post('http://localhost:9808/api/login', values);
+            const res = await api.post('/api/login', values,{
+                withCredentials:true
+            });
                 dispatch(isAuthFalse())
                 router.push('/')
                 toast.success("user Login Successfully",{
