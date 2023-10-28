@@ -2,10 +2,10 @@ import jwt from 'jsonwebtoken'
 import { UserModel } from '../models/user.model.js';
 import bcryptjs from 'bcryptjs';
 
-// Calculate the expiration time
-// const cookie_expire_date = new Date();
-// expirationDate.setMonth(expirationDate.getMonth() + 1);
-const cookie_expire_date = 30 * 60 * 60 * 24;
+
+// let cookie_expire_date = new Date();
+// cookie_expire_date.setFullYear(cookie_expire_date.getFullYear() + 1);
+
 const TOKEN_SECRET = process.env.TOKEN_SECRET || ''
 
 
@@ -78,14 +78,17 @@ export const loginUser = async (req,res) => {
         if(!isPasswordCorrect) return res.status(400).json({success:false, message:"wrong password"})
 
         const token = jwt.sign({id:user._id,username:user.username},TOKEN_SECRET,{
-            // expiresIn: cookie_expire_date.setMonth(cookie_expire_date.getMonth() + 1)
-            expiresIn: cookie_expire_date
+            expiresIn: '50d'
+            // expiresIn: cookie_expire_date
         })
+        // console.log('login user');
+
+        console.log('date function',cookie_expire_date.getMonth() + 1)
 
         res.cookie('ourauthtoken',token,{
             httpOnly: true,
-            maxAge:  cookie_expire_date,
-            expiresIn:  cookie_expire_date
+
+            expiresIn: '50d'
         })
 
         return res.status(200).json({message:"Success", user})
@@ -109,6 +112,7 @@ export const getUser = async (req,res) => {
     console.log('login route get method error');   
     throw new Error(error.message)
    }
+
 }
 
 // c:\Users\Sanaullah Mobini\Desktop\findworker\frontend\src\app\api\users\logout\route.js
@@ -116,6 +120,7 @@ export const getUser = async (req,res) => {
 export const logout = async (req,res) => {
     // const token = req.cookies.ourauthtoken || ''
     // console.log('this is backend token',req.cookie("ourauthtoken"));
+console.log('date function',cookie_expire_date.setMonth(cookie_expire_date))
     console.log('this is backend logout function token',req.cookies.ourauthtoken);
 
     req.cookies.ourauthtoken = ''
