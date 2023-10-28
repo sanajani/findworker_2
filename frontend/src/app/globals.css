@@ -3,3 +3,56 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* 
+.sender {
+    @apply flex items-center
+}
+
+.senderMessage {
+    @apply p-3 bg-blue-500 text-white rounded-full max-w-xs
+}
+
+.senderImage {
+    @apply rounded-md mr-2
+} */
+
+
+@layer components {
+    /* own messanger style */
+    .own {
+        @apply items-end flex flex-col
+    }
+
+    .ownimageparadev {
+        @apply p-3  rounded-full max-w-xs flex items-center gap-2
+    }
+
+    .ownImage {
+        @apply rounded-md mr-2
+    }
+    .ownPara{
+        @apply bg-gray-200 text-black px-3 rounded-full p-2
+    }
+    .ownMessageTime{
+       @apply text-[12px] mr-[13px]
+    }
+    /* sender messanger design */
+    .sender {
+        @apply flex flex-col
+    }
+
+    .senderimageparadev {
+        @apply p-1 rounded-full max-w-xs flex gap-2
+    }
+
+    .senderImage {
+        @apply rounded-md 
+    }
+    .senderPara{
+        @apply bg-blue-500 text-white px-3 rounded-full p-2
+    }
+    .senderMessageTime{
+       @apply text-[12px] mt-2 ml-2
+    }
+}
+

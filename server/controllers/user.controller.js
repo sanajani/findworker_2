@@ -2,7 +2,10 @@ import jwt from 'jsonwebtoken'
 import { UserModel } from '../models/user.model.js';
 import bcryptjs from 'bcryptjs';
 
-const cookie_expire_date =60 * 60 * 24 * 30;
+// Calculate the expiration time
+// const cookie_expire_date = new Date();
+// expirationDate.setMonth(expirationDate.getMonth() + 1);
+const cookie_expire_date = 30 * 60 * 60 * 24;
 const TOKEN_SECRET = process.env.TOKEN_SECRET || ''
 
 
@@ -75,13 +78,14 @@ export const loginUser = async (req,res) => {
         if(!isPasswordCorrect) return res.status(400).json({success:false, message:"wrong password"})
 
         const token = jwt.sign({id:user._id,username:user.username},TOKEN_SECRET,{
+            // expiresIn: cookie_expire_date.setMonth(cookie_expire_date.getMonth() + 1)
             expiresIn: cookie_expire_date
         })
 
         res.cookie('ourauthtoken',token,{
             httpOnly: true,
-            maxAge: cookie_expire_date,
-            expiresIn: cookie_expire_date
+            maxAge:  cookie_expire_date,
+            expiresIn:  cookie_expire_date
         })
 
         return res.status(200).json({message:"Success", user})
@@ -131,7 +135,7 @@ export const logout = async (req,res) => {
 // get all user for showing on the table
 export const getAllUsers = async (req,res,next) => {
     let page = parseInt(req.query.page) || 1
-    let limit = parseInt(req.query.limit) || 12
+    let limit = parseInt(req.query.limit) || 8
     try {
         const user = await UserModel.find().limit(limit*1).skip((page - 1) * limit).select('-password').exec();
         // console.log('this is user value',user);
@@ -164,7 +168,7 @@ export const getSingleUsername = async (req,res,next) => {
 // Search user based on specific rule 
 export const searchUser = async (req,res) => {
     const page = parseInt(req.query.page) || 1
-    const limit = parseInt(req.query.limit) || 12
+    const limit = parseInt(req.query.limit) || 8
    try {
     let job = req.query.job
     let province = req.query.province

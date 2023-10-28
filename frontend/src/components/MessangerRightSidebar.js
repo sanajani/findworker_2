@@ -2,7 +2,7 @@ import React from 'react'
 
 const MessangerRightSidebar = () => {
   return (
-    <div>
+    <div className='bg-gray-200'>
         <ul>
           <li>
             <span>dot</span>

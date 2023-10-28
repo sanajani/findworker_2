@@ -40,7 +40,7 @@ const HomePageTable = ({url}) => {
     // pagination states
     const [pagination,setPagination] = useState({
         pageIndex:0, //pageIndex = page number
-        pageSize: 12 // pageSize = limit  
+        pageSize: 8 // pageSize = limit  
     })
     const { data, error, isLoading } = useSWR(url,fetcher)
     console.log(data);

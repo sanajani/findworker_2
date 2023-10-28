@@ -1,14 +1,13 @@
 import React from 'react'
 import MessangerLeftSidebar from './MessangerLeftSidebar'
 import MessangerRightSidebar from './MessangerRightSidebar'
+import MessangerMessages from './MessangerMessages'
 
 const MessangerComponent = () => {
   return (
-    <div className='flex justify-between mx-auto bg-red-900 max-w-6xl md:w-[900px] overflow-x-hidden'>
+    <div className='grid grid-cols-5 mx-auto bg-red-700 min-h-full max-w-6xl md:w-[900px] lg:w-[1200px] overflow-x-hidden'>
         <MessangerLeftSidebar />
-        <div className='w-[500px]'>
-            <h1>Hello world</h1>
-        </div>
+        <MessangerMessages />
         <MessangerRightSidebar />
     </div>
   )

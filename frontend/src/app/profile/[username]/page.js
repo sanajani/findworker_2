@@ -5,8 +5,7 @@ import AboutUser from '../../../components/AboutUser'
 import useSWR from 'swr'
 import { fetcher } from '@/helper/fetcher'
 import { useParams } from 'next/navigation'
-
-
+import Link from 'next/link'
 
 const Profile = () => {
     const {username} = useParams()
@@ -81,6 +80,7 @@ const Profile = () => {
             {/* about that user */}
             <div>
                 <AboutUser name={data?.name} personalInfo={data?.personalInfo} />
+                <Link className='bg-blue-600 text-white md:text-xl md:py-3 rounded-md md:px-6' href='/messanger'>Messanger</Link>
             </div>
         </main>
     )

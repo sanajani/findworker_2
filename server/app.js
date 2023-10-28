@@ -5,7 +5,8 @@ import morgan from 'morgan'
 import cors from 'cors'
 import cookieParser from 'cookie-parser';
 import { globelError } from './utilities/globelErros.js';
-import { routeNotFoundError } from './controllers/routeNotFoundError.js';
+// import { routeNotFoundError } from './controllers/routeNotFoundError.js';
+import { routeNotFoundError } from './utilities/routeNotFoundError.js' 
 import conversationRoute from './routes/conversationRoutes.js';
 import messageRoute from './routes/messagesRoutes.js';
 

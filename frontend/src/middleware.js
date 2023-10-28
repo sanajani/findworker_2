@@ -17,7 +17,7 @@ export function middleware(request) {
     console.log("this is your localstorage middleware",hasLocalStorageAccess);
     // if not token then do that
     if(messagePath && !token){
-      return NextResponse.redirect(new URL('/?page=1',request.nextUrl))
+      return NextResponse.redirect(new URL('/login',request.nextUrl))
     }
 
     if(publicPath && token) {
