@@ -2,13 +2,13 @@
 import Link from "next/link";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import { useState, useEffect } from "react";
-import axios from "axios";
 import { useRouter } from "next/navigation";
 import { isAuthTrue } from "../redux/isAuth";
 import { useDispatch, useSelector } from "react-redux";
 import { ToastContainer, toast } from 'react-toastify'
 import "react-toastify/dist/ReactToastify.css";
 import api from "@/utils/api";
+// import Cookies from "js-cookie";
 
 
 const Navbar = () => {

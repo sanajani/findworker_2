@@ -134,7 +134,7 @@ export const getAllUsers = async (req,res,next) => {
     let limit = parseInt(req.query.limit) || 12
     try {
         const user = await UserModel.find().limit(limit*1).skip((page - 1) * limit).select('-password').exec();
-        console.log('this is user value',user);
+        // console.log('this is user value',user);
         const count = await UserModel.countDocuments()
         const currentPage = page
         const totalPages = Math.floor((count + limit - 1) / limit)

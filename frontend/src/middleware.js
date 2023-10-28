@@ -6,19 +6,26 @@ export function middleware(request) {
     
     // const messangerPath = path === '/messanger'
     const publicPath = path === '/login' || path === '/signup'
-
+    
+    // it is message path
+    const messagePath = path === '/messanger'
+    
     const token = request.cookies.get('ourauthtoken')?.value || ''
-    console.log('middleware',token, publicPath);
+    
+    const hasLocalStorageAccess = typeof window === 'undefined';
+
+    console.log("this is your localstorage middleware",hasLocalStorageAccess);
+    // if not token then do that
+    if(messagePath && !token){
+      return NextResponse.redirect(new URL('/?page=1',request.nextUrl))
+    }
 
     if(publicPath && token) {
-        return NextResponse.redirect(new URL('/', request.nextUrl))
+        return NextResponse.redirect(new URL('/?page=1', request.nextUrl))
     }
-    // if(!token){
-      // return NextResponse.redirect(new URL('/', request.nextUrl))
-    // }
 }
  
 // See "Matching Paths" below to learn more
 export const config = {
-  matcher: ['/login','/signup'],
+  matcher: ['/login','/signup','/messanger'],
 }

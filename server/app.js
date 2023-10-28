@@ -6,6 +6,8 @@ import cors from 'cors'
 import cookieParser from 'cookie-parser';
 import { globelError } from './utilities/globelErros.js';
 import { routeNotFoundError } from './controllers/routeNotFoundError.js';
+import conversationRoute from './routes/conversationRoutes.js';
+import messageRoute from './routes/messagesRoutes.js';
 
 // database connection
 import connectDB from './db/connectDB.js'
@@ -30,6 +32,8 @@ import userRoute from './routes/User.js';
 // add route middleware on app
 app.use('/api',signupRoute)
 app.use('/api/users',userRoute)
+app.use('/api/conversation',conversationRoute)
+app.use('/api/messages',messageRoute)
 
 // route not match with api routes
 app.all('*',routeNotFoundError)

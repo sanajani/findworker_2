@@ -115,8 +115,8 @@ const HomePageTable = ({url}) => {
                                 return <tr key={row.id}>
                                     {
                                         row.getVisibleCells().map((tableRowData) => {
-                                            return <td key={tableRowData.id} className='whitespace-nowrap p-2 text-center border border-white md:text-lg text-base bg-blue-700'>{
-                                                tableRowData.column.id === 'username' ? <Link href={`/profile/${tableRowData.getValue(tableRowData.id)}`} className='inline-block w-full h-full'>{flexRender(tableRowData.column.columnDef.cell, tableRowData.getContext())}</Link> : flexRender(tableRowData.column.columnDef.cell, tableRowData.getContext())
+                                            return <td key={tableRowData.id} className='py-3 md:py-4 md:text-xl whitespace-nowrap p-2 text-center border border-white  text-base bg-blue-700'>{
+                                                tableRowData.column.id === 'username' ? <Link  href={`/profile/${tableRowData.getValue(tableRowData.id)}`} className='inline-block w-full h-full underline '>{flexRender(tableRowData.column.columnDef.cell, tableRowData.getContext())}</Link> : flexRender(tableRowData.column.columnDef.cell, tableRowData.getContext())
                                             }</td>
                                         })
                                     }
