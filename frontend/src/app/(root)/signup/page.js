@@ -1,5 +1,6 @@
 'use client'
-import ClientSignupForm from '../../components/ClientSignupForm'
+// import ClientSignupForm from '../../components/ClientSignupForm'
+import ClientSignupForm from '@/components/ClientSignupForm'
 import { useSelector } from 'react-redux'
 import { ThreeDots } from 'react-loader-spinner'
 

@@ -23,8 +23,8 @@ const SearchTable = () => {
         return params.toString()
     },[searchParams])
 
+    const provinceUrlWord = searchParams.get('province')
     const searchUserByJob = () => {
-        const provinceUrlWord = searchParams.get('province')
         if(provinceUrlWord){
             router.push(`/search?${createQueryString("province",provinceUrlWord,'job',query)}`)
         }
@@ -32,6 +32,9 @@ const SearchTable = () => {
     }
     const searchUserByProvince = () => {
         if(provinceNameState){
+            if(provinceUrlWord){
+                router.push(`/search?${createQueryString("province",provinceUrlWord,'job',query)}`)
+            }
             router.push(`/search?${createQueryString("province",provinceNameState,'job',query)}`)
         }
     }

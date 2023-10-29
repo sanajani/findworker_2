@@ -1,6 +1,8 @@
 "use client"
-import HomePageTable from "../components/HomePageTable"
-import SearchTable from "../components/SearchTable"
+// import HomePageTable from "../components/HomePageTable"
+// import SearchTable from "../components/SearchTable"
+import HomePageTable from "@/components/HomePageTable"
+import SearchTable from "@/components/SearchTable"
 import { useSearchParams } from "next/navigation"
 
 export default function Home() {

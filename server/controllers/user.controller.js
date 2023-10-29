@@ -11,7 +11,6 @@ const TOKEN_SECRET = process.env.TOKEN_SECRET || ''
 
 export const createUser = async (req,res,next) => {
     let userID = await UserModel.count() + 1;
-    // const userID = 1001
     const {
         name,
         lastName,
@@ -83,7 +82,7 @@ export const loginUser = async (req,res) => {
         })
         // console.log('login user');
 
-        console.log('date function',cookie_expire_date.getMonth() + 1)
+        // console.log('date function',cookie_expire_date.getMonth() + 1)
 
         res.cookie('ourauthtoken',token,{
             httpOnly: true,
@@ -120,7 +119,7 @@ export const getUser = async (req,res) => {
 export const logout = async (req,res) => {
     // const token = req.cookies.ourauthtoken || ''
     // console.log('this is backend token',req.cookie("ourauthtoken"));
-console.log('date function',cookie_expire_date.setMonth(cookie_expire_date))
+// console.log('date function',cookie_expire_date.setMonth(cookie_expire_date))
     console.log('this is backend logout function token',req.cookies.ourauthtoken);
 
     req.cookies.ourauthtoken = ''
