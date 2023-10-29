@@ -4,7 +4,7 @@ import Image from 'next/image'
 
 const MessangerLeftSidebar = () => {
   return (
-    <div className='bg-gray-300 col-span-1'>
+    <div className='bg-gray-300 col-span-1 max-h-screen'>
         <input type="text" placeholder='search user' />
         <ul className='mt-4'>
           <li className='flex items-center gap-4 my-4 mx-2 '>
