@@ -19,7 +19,8 @@ const ClientLoginForm = () => {
             const res = await api.post('/api/login', values,{
                 withCredentials:true
             });
-                dispatch(isAuthFalse())
+            console.log(res.data);
+                dispatch(isAuthFalse(res.data))
                 router.push('/')
                 toast.success("user Login Successfully",{
                     position: "bottom-right",

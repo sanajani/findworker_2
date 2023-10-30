@@ -1,8 +1,13 @@
 'use client'
-import React from 'react'
+import React,{useState} from 'react'
 import Image from 'next/image'
+import { useSelector } from 'react-redux'
 
 const MessangerLeftSidebar = () => {
+  const {user} = useSelector((state) => state.isAuthState);
+  console.log(user);
+  
+
   return (
     <div className='bg-gray-300 col-span-1 max-h-screen'>
       <h1 className='bg-gray-600 mt-3 py-3 text-center text-lg text-white font-bold'>Your All Friends</h1>
