@@ -5,7 +5,7 @@ import MessangerMessages from './MessangerMessages'
 
 const MessangerComponent = () => {
   return (
-    <div className='grid grid-cols-5 mx-auto max-w-6xl md:w-[900px] lg:w-[1100px] overflow-x-hidden max-h-screen'>
+    <div className='grid gap-4 grid-cols-5 mx-auto max-w-7xl md:w-[900px] lg:w-[1200px] overflow-x-hidden max-h-screen'>
         <MessangerLeftSidebar />
         <MessangerMessages />
         <MessangerRightSidebar />

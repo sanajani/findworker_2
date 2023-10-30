@@ -5,33 +5,19 @@ import Image from 'next/image'
 const MessangerLeftSidebar = () => {
   return (
     <div className='bg-gray-300 col-span-1 max-h-screen'>
-        <input type="text" placeholder='search user' />
+      <h1 className='bg-gray-600 mt-3 py-3 text-center text-lg text-white font-bold'>Your All Friends</h1>
+      <div className='pr-2'>
+      <input type="text" placeholder='search user' className='px-1 py-3 my-2' />
+      </div>
         <ul className='mt-4'>
-          <li className='flex items-center gap-4 my-4 mx-2 '>
-            <Image 
-            src='/profiledefalt.png'
-            alt="Profile image"
-            width={35}
-            height={35}
-            />
-            <span>Sanaullah hadid</span>
-          </li>
-          <li className='flex items-center gap-4 my-4 mx-2'>
-            <Image 
-            src='/profiledefalt.png'
-            alt="Profile image"
-            width={35}
-            height={35}
-            />
-            <span>Sanaullah hadid</span>
-          </li>
-          <li className='flex items-center gap-4 my-4 mx-2'>
-            <Image 
-            src='/profiledefalt.png'
-            alt="Profile image"
-            width={35}
-            height={35}
-            />
+        <li className='rounded-lg my-2 flex mt-3 cursor-pointer items-center gap-2 bg-white w-full p-2'>
+            <div className='w-10 h-10 relative'>
+              <Image 
+              src='/profiledefalt.png'
+              alt="Profile image"
+              fill={true}
+              />
+            </div>
             <span>Sanaullah hadid</span>
           </li>
         </ul>
