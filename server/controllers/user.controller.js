@@ -86,11 +86,11 @@ export const loginUser = async (req,res) => {
 
         res.cookie('ourauthtoken',token,{
             httpOnly: true,
-
             expiresIn: '50d'
         })
-
+        user.password = ''
         return res.status(200).json({message:"Success", user})
+        // username
 
     } catch (error) {
         console.log(error);
@@ -168,7 +168,23 @@ export const getSingleUsername = async (req,res,next) => {
     }
 }
 
+// get single user by username
+export const getSingleuserById = async (req,res,next) => {
+    const {id} = req.params || ''
+    console.log(id);
+    // console.log(username);
+    try {
+        const user = await UserModel.findById(id)
+        
+        const {password,updateAt,...other} = user._doc
+        return res.status(200).json(other)
+    } catch (error) {
+        console.log(error);
+        next(error.message)
+    }
+}
 
+// 0799372914
 // Search user based on specific rule 
 export const searchUser = async (req,res) => {
     const page = parseInt(req.query.page) || 1

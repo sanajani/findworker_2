@@ -20,7 +20,7 @@ const ClientLoginForm = () => {
                 withCredentials:true
             });
             console.log(res.data);
-                dispatch(isAuthFalse(res.data))
+                dispatch(isAuthFalse(res?.data?.user))
                 router.push('/')
                 toast.success("user Login Successfully",{
                     position: "bottom-right",
