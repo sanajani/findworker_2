@@ -23,7 +23,7 @@ export const getConversations = async (req,res,next) => {
         const conversation = await conversationModel.find({
             members:{$in :[userId]}
         })
-        return res.status(200).json({message:"Success",conversation})
+        return res.status(200).json(conversation)
     } catch (error) {
         console.log(error);
         next(error.message)
