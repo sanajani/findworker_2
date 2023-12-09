@@ -1,7 +1,6 @@
 'use client'
 import React from 'react'
 import Image from 'next/image'
-// import AboutUser from '../../../components/AboutUser'
 import AboutUser from '@/components/AboutUser'
 import useSWR from 'swr'
 import { fetcher } from '@/helper/fetcher'
@@ -13,7 +12,6 @@ const Profile = () => {
     const {data, isLoading, error} = useSWR(`/api/users/all/${username}`,fetcher)
 
     if(isLoading) return <h1>Loading...</h1>
-
 
     return (
         <main className='min-h-screen pt-24 w-full md:max-w-[1200px] mx-auto border-2'>
