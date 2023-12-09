@@ -79,7 +79,7 @@ const Profile = () => {
             {/* about that user */}
             <div>
                 <AboutUser name={data?.name} personalInfo={data?.personalInfo} />
-                {/* <Link className='bg-blue-600 text-white md:text-xl md:py-3 rounded-md md:px-6' href='/messanger'>Messanger</Link> */}
+                <Link className='bg-blue-600 text-white md:text-xl md:py-3 rounded-md md:px-6' href='/editprofile'>Edit</Link>
             </div>
         </main>
     )
