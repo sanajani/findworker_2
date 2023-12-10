@@ -7,8 +7,6 @@ import { Formik, Form, Field } from 'formik'
 import ErrorMessges from './ErrorMessges'
 import { list_of_districts } from './ProvinceName'
 import { initialValues,signupSchema } from '@/utils/signupSchema'
-import axios from 'axios'
-import { useState } from 'react'
 import { ToastContainer, toast } from 'react-toastify'
 import api from '@/utils/api'
 
@@ -16,7 +14,6 @@ import api from '@/utils/api'
 const ClientSignupForm = () => {
     const dispatch = useDispatch()
     const router = useRouter()
-    // const [errorMessage, setErrorMessage] = useState('')
 
     // upload image url to backend
     const signupFormSubmit = async (values) => {
@@ -36,7 +33,7 @@ const ClientSignupForm = () => {
             formData.set('aboutuser',aboutuser)
             formData.set('firstPhoneNumber',firstPhoneNumber)
             formData.set('file',file)
-
+            console.log('this is file get formdata',formData.get('file'));
             const postResponse = await api.post('/api/signup', formData)
             router.push('/login')
             toast.success("Signup Successfully",{

@@ -1,8 +1,8 @@
 import multer from 'multer';
 
+console.log('inside multer ');
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-      console.log('inside multer ');
     cb(null, 'public/images'); // Specify the destination folder
   },
   filename: function (req, file, cb) {
@@ -23,10 +23,9 @@ const fileFilter = (req, file, cb) => {
 
 export const upload = multer({ 
   storage: storage,
-  limits: {
-    // fileSize: 1024 * 1024 // 1MB limit
-    fileSize: 3 * 1024 * 1024 // 3MB limit
-  },
-  fileFilter: fileFilter
+  // limits: {
+  //   fileSize: 3 * 1024 * 1024 // 3MB limit
+  // },
+  // fileFilter: fileFilter
  });
 

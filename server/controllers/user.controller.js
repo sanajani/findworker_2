@@ -8,7 +8,6 @@ import bcryptjs from 'bcryptjs';
 
 const TOKEN_SECRET = process.env.TOKEN_SECRET || ''
 
-
 export const createUser = async (req,res,next) => {
     let userID = await UserModel.count() + 1;
     const {
@@ -58,6 +57,7 @@ export const createUser = async (req,res,next) => {
         id: userID
     })
     await newUser.save();
+    console.log(imageUrlPath)
     return res.status(200).json({message: "User successfully inseted", user: newUser})
 
     } catch (error) {
@@ -221,4 +221,44 @@ export const searchUser = async (req,res) => {
    } catch (error) {
     
    }
+}
+
+// update user
+export const updateUser = async (req,res) => {
+    const {id} = req.params || ''
+    if(!id) return res.status(403).json({message:"Invalid credintials"})
+    const {
+        name,
+        lastName,
+        username,
+        job,
+        experiance,
+        phoneNumber1,
+        phoneNumber2,
+        province,
+        aboutuser
+        } = req.body;
+    // const imageUrlPath = req.file?.path;
+    const imageUrlPath = req?.file;
+    console.log('========================================',imageUrlPath);
+    try {
+        const newUser = await UserModel.findByIdAndUpdate(id,{
+            name,
+            lastName,
+            username,
+            job,
+            experiance,
+            phoneNumber1,
+            phoneNumber2,
+            profileImage: imageUrlPath,
+            province,
+            personalInfo: aboutuser,
+        },{new:true})
+        await newUser.save();
+        return res.status(200).json(newUser)
+    } catch (error) {
+        
+    }
+
+    return res.status(200).json({message:"Success"})
 }

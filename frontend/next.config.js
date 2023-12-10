@@ -1,13 +1,10 @@
+require('dotenv').config();
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-        remotePatterns: [
-            {
-                protocol: 'https',
-                hostname: '**'
-            }
-        ]
-    }
+        domains: ['localhost'], // Add your domain(s) here
+    },
 }
 
 module.exports = nextConfig

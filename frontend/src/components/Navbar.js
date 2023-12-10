@@ -19,14 +19,15 @@ const Navbar = () => {
   const dispatch = useDispatch();
 
   const { isAuth } = useSelector((state) => state.isAuthState)
-  let getCookie;
-  useEffect(() => {
-    setIsLogin(isAuth)
-    getCookie = Cookies.get('outauthtoken')
-    if(!getCookie){
-      dispatch(isAuthTrue)
-    }
-  }, [setIsLogin,isAuth])
+  // let getCookie;
+  // useEffect(() => {
+  //   setIsLogin(isAuth)
+  //   getCookie = Cookies.get('ourauthtoken')
+  //   alert(getCookie)
+  //   if(!getCookie){
+  //     dispatch(isAuthTrue())
+  //   }
+  // }, [setIsLogin,isAuth])
 
   const logout = async () => {
     try {
